@@ -1,0 +1,9 @@
+<svg width="12" height="4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <path d="m11.357,3.332a0.641,0.641 0 0 0 0.643,-0.642l0,-2.047a0.641,0.641 0 0 0 -0.643,-0.643l-10.714,0a0.641,0.641 0 0 0 -0.643,0.643l0,2.046c0,0.357 0.287,0.643 0.643,0.643l10.714,0z" id="a"/>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <use fill="#FF7E1B" fill-rule="nonzero" xlink:href="#a" id="svg_1" y="0.334" x="0"/>
+ </g>
+</svg>

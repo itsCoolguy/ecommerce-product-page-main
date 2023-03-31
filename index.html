@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>E-commerce product page</title>
+  </head>
+  <body>
+    <header>
+      <div id="header-left">
+        <button id="open-mobile-menu-button">
+          <img src="./images/icon-menu.svg" alt="menu" id="menu-icon">
+        </button>
+        <img src="./images/logo.svg" alt="logo" id="header-logo">
+        <nav id="desktop-navbar">
+          <ul>
+            <li class="selected-navbar" id="nav-1">
+              <a class="desktop-navbar-link">Collections</a>
+              <div class="desktop-navbar-selection"></div>
+            </li>
+            <li id="nav-2">
+              <a class="desktop-navbar-link">Men</a>
+              <div class="desktop-navbar-selection"></div>
+            </li>
+            <li id="nav-3">
+              <a class="desktop-navbar-link">Women</a>
+              <div class="desktop-navbar-selection"></div>
+            </li>
+            <li id="nav-4">
+              <a class="desktop-navbar-link">About</a>
+              <div class="desktop-navbar-selection"></div>
+            </li>
+            <li id="nav-5">
+              <a class="desktop-navbar-link">Contact</a>
+              <div class="desktop-navbar-selection"></div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div id="header-right">
+        <button id="basket-button">
+          <img src="./images/icon-cart.svg" alt="basket" id="basket-image">
+        </button>
+        <button id="profile-button">
+          <img src="./images//image-avatar.png" alt="basket" id="profile-image">
+        </button>
+      </div>
+
+      <div id="basket-frame">
+        <h5 id="basket-title">Cart</h5>
+        <div id="main-basket">
+          <div id="basket-items">
+            <div id="template-basket" class="basket-item">
+              <img src="./images/image-product-1-thumbnail.jpg" alt="product image" class="product-image-basket">
+              <div class="product-text">
+                <p class="product-name">Item Name</p>
+                <p class="product-quantity">$0 x 1</p>
+                <strong>$0</strong>
+              </div>
+              <button class="delete-basket-item-button">
+                <img src="./images/icon-delete.svg" alt="remove item" class="delete-icon">
+              </button>
+            </div>
+          </div>
+          <button id="checkout-button">Checkout</button>
+        </div>
+        <p id="empty-cart-text">Your cart is empty.</p>
+      </div>
+    </header>
+
+    <main>
+      <div id="product-images">
+        <button id="next-image-button" class="product-image-button next-button">
+          <img src="./images/icon-next.svg" alt="next image" id="next-image-image" class="product-images-image">
+        </button>
+        <div id="product-images-main">
+          <button class="main-product-image-button" onclick="openLightbox()">
+            <img src="./images/image-product-1.jpg" alt="product image" id="product-image" class="product-image">
+          </button>
+        </div>
+        <button id="previous-image-button" class="product-image-button previous-button">
+          <img src="./images/icon-previous.svg" alt="previous image" id="previous-image-image" class="product-images-image">
+        </button>
+
+        <div id="product-image-gallery" class="product-image-gallery">
+          <button class="product-thumbnail-button selected-thumbnail">
+            <img src="./images/image-product-1-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-1" class="product-thumbnail">
+          </button>
+          <button class="product-thumbnail-button">
+            <img src="./images/image-product-2-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-2" class="product-thumbnail">
+          </button>
+          <button class="product-thumbnail-button">
+            <img src="./images/image-product-3-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-3" class="product-thumbnail">
+          </button>
+          <button class="product-thumbnail-button">
+            <img src="./images/image-product-4-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-4" class="product-thumbnail">
+          </button>
+        </div>
+      </div>
+
+      <div id="lightbox">
+        <div id="main-lightbox">
+          <div id="lightbox-main-image-frame">
+            <button id="exit-lightbox-button" onclick="closeLightbox()">
+              <img src="./images/icon-close.svg" alt="close" id="exit-image">
+            </button>
+
+            <div id="lightbox-center-image-frame">
+              <button id="next-image-button-lightbox" class="image-button-lightbox product-image-button next-button">
+                <img src="./images/icon-next.svg" alt="next image" id="next-image-image" class="product-images-image">
+              </button>
+              <img src="./images/image-product-1.jpg" alt="product image" id="lightbox-main-image">
+              <button id="previous-image-button-lightbox" class="product-image-button image-button-lightbox previous-button">
+                <img src="./images/icon-previous.svg" alt="previous image" id="previous-image-image" class="product-images-image">
+              </button>
+            </div>
+          </div>
+
+          <div id="lightbox-gallery" class="product-image-gallery">
+            <button class="product-thumbnail-button selected-thumbnail">
+              <img src="./images/image-product-1-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-1" class="product-thumbnail">
+            </button>
+            <button class="product-thumbnail-button">
+              <img src="./images/image-product-2-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-2" class="product-thumbnail">
+            </button>
+            <button class="product-thumbnail-button">
+              <img src="./images/image-product-3-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-3" class="product-thumbnail">
+            </button>
+            <button class="product-thumbnail-button">
+              <img src="./images/image-product-4-thumbnail.jpg" alt="product thumbnail" id="product-thumbnail-4" class="product-thumbnail">
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="main-content">
+        <h4 id="product-brand">SNEAKER COMPANY</h4>
+        <h1 id="product-name">Fall Limited Edition Sneakers</h1>
+        <p id="product-description">These low-profile snakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll 
+          withstand everything the weather can offer.
+        </p>
+        <div id="price-frame">
+          <div id="left-price-frame">
+            <h2 id="price-text">$125.00</h2>
+            <div id="discount-frame"><p id="discount-text">50%</p></div>
+          </div>
+          <s id="old-price-text">$250.00</s>
+        </div>
+        <div id="interactable-main">
+          <div id="quantity-selector">
+            <button id="minus-quantity-button">
+              <img src="./images/icon-minus.svg" alt="minus" id="minus-quantity-image">
+            </button>
+            <p id="quantity-text">1</p>
+            <button id="add-quantity-button">
+              <img src="./images/icon-plus.svg" alt="add" id="add-quantity-image">
+            </button>
+          </div>
+          <button id="add-to-cart-button">
+            <img src="./images/icon-cart.svg" alt="cart" id="cart-image">
+            <p id="add-to-cart-text">Add to cart</p>
+          </button>
+        </div>
+      </div>
+    </main>
+    
+    <script src="main.js"></script>
+  </body>
+</html>
