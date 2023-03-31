@@ -20,6 +20,7 @@ const addToBasketButton = document.querySelector('#add-to-cart-button');
 const basketTemplate = basketFrame.querySelector('#template-basket');
 const emptyCartText = basketFrame.querySelector('#empty-cart-text');
 const mainBasket = basketFrame.querySelector('#main-basket');
+const basketItemsText = basketButton.querySelector('#basket-items-text');
 
 const quantityUpButton = document.querySelector('#add-quantity-button');
 const quantityDownButton = document.querySelector('#minus-quantity-button');
@@ -34,6 +35,7 @@ let lightboxCurrentPicture = 1;
 
 let quantity = 1;
 let currentBasket = 0;
+let totalBasketItems = 0;
 
 // Navbar handling
 
@@ -155,12 +157,16 @@ function addToBasket() {
         'quantity': quantity,
         'totalPrice': 125 * Number(quantity),
     };
+    totalBasketItems += quantity;
 
     const newBasketItem = basketTemplate.cloneNode(true);
     newBasketItem.id = 'basket-item-' + currentBasket;
     newBasketItem.querySelector('.product-name').textContent = basket[currentBasket].name;
     newBasketItem.querySelector('.product-quantity').textContent = '$' + basket[currentBasket].price + ' x ' + basket[currentBasket].quantity;
     newBasketItem.querySelector('strong').textContent = '$' + basket[currentBasket].totalPrice;
+
+    basketItemsText.textContent = totalBasketItems;
+    basketItemsText.style.display = 'block';
 
     newBasketItem.querySelector('.delete-basket-item-button').addEventListener('click', removeFromBasket);
 
@@ -174,13 +180,19 @@ function removeFromBasket() {
     const basketItem = this.closest('.basket-item');
     const basketItemId = Number(basketItem.id.split('basket-item-')[1])
     try {
-        delete basket[basketItemId]
+        console.log(basket[basketItemId].quantity);
+        totalBasketItems -= basket[basketItemId].quantity;
+        delete basket[basketItemId];
         basketItem.remove();
+        basketItemsText.textContent = totalBasketItems;
+        if (totalBasketItems <= 0) {
+            basketItemsText.style.removeProperty('display');
+        }
         for (let i = 0; i < Object.keys(basket).length; i++) {
             return;
         }
-        mainBasket.style.display = 'none';
-        emptyCartText.style.display = 'block';
+        mainBasket.style.removeProperty('display');
+        emptyCartText.style.removeProperty('display');
     } catch(err) {
         console.log(err)
     }
